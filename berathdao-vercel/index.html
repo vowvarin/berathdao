@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berachain Thailand DAO 🐻⛓️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --yellow: #F6B638;
+      --orange: #F26430;
+      --cream: #F3E9C9;
+      --green: #2FB26B;
+      --blue: #2B5CE2;
+      --pink: #E85AA1;
+      --teal: #1BA7C2;
+      --purple: #7B5BF5;
+      --black: #111111;
+      --brown: #3A2C1D;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans Thai', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--cream);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(243, 233, 201, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid rgba(58, 44, 29, 0.1);
+    }
+
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-brand img {
+      height: 40px;
+      width: auto;
+    }
+
+    .nav-brand span {
+      font-weight: 700;
+      color: var(--brown);
+      display: none;
+    }
+
+    @media (min-width: 640px) {
+      .nav-brand span {
+        display: block;
+      }
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .btn-yellow {
+      background: var(--yellow);
+      color: var(--black);
+    }
+
+    .btn-black {
+      background: var(--black);
+      color: var(--cream);
+    }
+
+    .btn-large {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+    }
+
+    /* Sections */
+    section {
+      padding: 4rem 1rem;
+    }
+
+    @media (min-width: 1024px) {
+      section {
+        padding: 6rem 1rem;
+      }
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      padding-top: 80px;
+      display: flex;
+      align-items: center;
+      background: var(--cream);
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+      }
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      color: var(--black);
+    }
+
+    @media (min-width: 640px) {
+      .hero-title {
+        font-size: 3.5rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-title {
+        font-size: 4rem;
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 1.125rem;
+      color: var(--brown);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    @media (min-width: 640px) {
+      .hero-subtitle {
+        font-size: 1.25rem;
+      }
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .hero-image {
+      border-radius: 1.5rem;
+      overflow: hidden;
+      border: 4px solid var(--black);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      aspect-ratio: 1/1;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Section Headers */
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    @media (min-width: 1024px) {
+      .section-header {
+        margin-bottom: 4rem;
+      }
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 0.75rem;
+    }
+
+    @media (min-width: 640px) {
+      .section-title {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .section-title {
+        font-size: 3rem;
+      }
+    }
+
+    .section-subtitle {
+      font-size: 1.125rem;
+      color: var(--brown);
+    }
+
+    /* Cards Grid */
+    .card-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .card-grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .card-grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Cards */
+    .card {
+      background: white;
+      border: 3px solid var(--black);
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--black);
+    }
+
+    @media (min-width: 1024px) {
+      .card-title {
+        font-size: 1.5rem;
+      }
+    }
+
+    .card-text {
+      color: var(--brown);
+    }
+
+    /* Step Card */
+    .step-card {
+      position: relative;
+      background: var(--cream);
+      border: 3px solid var(--black);
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+    }
+
+    .step-number {
+      position: absolute;
+      top: -16px;
+      left: -16px;
+      width: 48px;
+      height: 48px;
+      background: var(--orange);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      font-weight: 900;
+    }
+
+    .step-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      margin-top: 0.5rem;
+      color: var(--black);
+    }
+
+    @media (min-width: 1024px) {
+      .step-title {
+        font-size: 1.5rem;
+      }
+    }
+
+    .step-text {
+      color: var(--brown);
+      margin-bottom: 1rem;
+    }
+
+    /* Event Card - Large Image */
+    .event-card {
+      background: white;
+      border: 3px solid var(--black);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      transition: box-shadow 0.3s;
+    }
+
+    .event-card:hover {
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    .event-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .event-image img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    @media (min-width: 640px) {
+      .event-image img {
+        height: 300px;
+      }
+    }
+
+    .event-card:hover .event-image img {
+      transform: scale(1.05);
+    }
+
+    .event-date {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--yellow);
+      color: var(--black);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .event-content {
+      padding: 1.5rem;
+    }
+
+    .event-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--black);
+    }
+
+    @media (min-width: 1024px) {
+      .event-title {
+        font-size: 1.5rem;
+      }
+    }
+
+    .event-subtitle {
+      color: var(--brown);
+      margin-bottom: 1rem;
+    }
+
+    .event-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--blue);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .event-link:hover {
+      text-decoration: underline;
+    }
+
+    /* AMA Card with Image */
+    .ama-card {
+      background: white;
+      border: 3px solid var(--black);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      text-decoration: none;
+      display: block;
+      transition: box-shadow 0.3s;
+    }
+
+    .ama-card:hover {
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    .ama-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ama-image img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    @media (min-width: 640px) {
+      .ama-image img {
+        height: 280px;
+      }
+    }
+
+    .ama-card:hover .ama-image img {
+      transform: scale(1.05);
+    }
+
+    .ama-date-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--pink);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .ama-content {
+      padding: 1.25rem;
+    }
+
+    .ama-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .ama-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--purple);
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+
+    /* Content Card with Image */
+    .content-card {
+      background: white;
+      border: 3px solid var(--black);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      text-decoration: none;
+      display: block;
+      transition: box-shadow 0.3s;
+    }
+
+    .content-card:hover {
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    .content-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .content-image img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    @media (min-width: 640px) {
+      .content-image img {
+        height: 240px;
+      }
+    }
+
+    .content-card:hover .content-image img {
+      transform: scale(1.05);
+    }
+
+    .content-date-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--teal);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .content-text {
+      padding: 1.25rem;
+    }
+
+    .content-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--black);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Partners Section - Full Width Image */
+    .partners-image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .partners-image {
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      max-height: 400px;
+      border-radius: 1.5rem;
+      border: 3px solid var(--black);
+    }
+
+    /* Benefits Image */
+    .benefits-image-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+
+    .benefits-image {
+      max-width: 100%;
+      width: auto;
+      max-height: 400px;
+      border-radius: 1.5rem;
+      border: 4px solid var(--black);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .benefits-image:hover {
+      transform: scale(1.02);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (min-width: 768px) {
+      .benefits-image {
+        max-height: 450px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .benefits-image {
+        max-height: 500px;
+      }
+    }
+
+    /* Gallery Grid - Equal Size Images */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 3px solid var(--black);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      background: var(--black);
+      aspect-ratio: 4/3;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.5s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.03);
+    }
+
+    /* Team Card */
+    .team-card {
+      background: var(--black);
+      border: 3px solid var(--black);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .team-image {
+      width: 100%;
+      height: 280px;
+      object-fit: contain;
+      background: var(--black);
+      padding: 2rem;
+    }
+
+    @media (min-width: 640px) {
+      .team-image {
+        height: 320px;
+      }
+    }
+
+    .team-content {
+      padding: 1.5rem;
+      text-align: center;
+      background: var(--black);
+    }
+
+    .team-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+
+    @media (min-width: 1024px) {
+      .team-name {
+        font-size: 1.5rem;
+      }
+    }
+
+    .team-desc {
+      color: var(--cream);
+      opacity: 0.8;
+    }
+
+    /* Contact Buttons */
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.5rem;
+      border-radius: 1rem;
+      text-decoration: none;
+      transition: transform 0.3s;
+    }
+
+    .contact-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .contact-btn-yellow {
+      background: var(--yellow);
+      color: var(--black);
+    }
+
+    .contact-btn-blue {
+      background: var(--blue);
+      color: white;
+    }
+
+    .contact-info {
+      text-align: left;
+    }
+
+    .contact-platform {
+      font-size: 0.75rem;
+      opacity: 0.7;
+    }
+
+    .contact-name {
+      font-weight: 700;
+    }
+
+    /* Footer */
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand img {
+      height: 40px;
+      width: auto;
+    }
+
+    .footer-text {
+      font-size: 0.875rem;
+      opacity: 0.6;
+    }
+
+    .footer-copyright {
+      font-size: 0.75rem;
+      opacity: 0.4;
+      margin-top: 0.5rem;
+    }
+
+    /* Background Colors */
+    .bg-cream { background: var(--cream); }
+    .bg-yellow { background: var(--yellow); }
+    .bg-purple { background: var(--purple); }
+    .bg-green { background: var(--green); }
+    .bg-black { background: var(--black); }
+
+    /* Text Colors */
+    .text-black { color: var(--black); }
+    .text-brown { color: var(--brown); }
+    .text-cream { color: var(--cream); }
+    .text-white { color: white; }
+
+    /* Utilities */
+    .text-center { text-align: center; }
+    .border-t { border-top: 1px solid rgba(255, 255, 255, 0.2); }
+    .pt-8 { padding-top: 2rem; }
+
+    /* Icons */
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .icon-large {
+      width: 24px;
+      height: 24px;
+    }
+
+    .icon-xl {
+      width: 32px;
+      height: 32px;
+    }
+
+    @media (min-width: 1024px) {
+      .icon-xl {
+        width: 48px;
+        height: 48px;
+      }
+    }
+
+    /* Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <img src="/images/logo.png" alt="Berachain Thailand DAO">
+        <span>Berachain Thailand DAO</span>
+      </div>
+      <div class="nav-buttons">
+        <a href="https://t.me/BerachainTH" target="_blank" class="btn btn-yellow">
+          <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+          </svg>
+          <span class="hide-sm">Telegram</span>
+        </a>
+        <a href="https://x.com/BerachainTHDAO" target="_blank" class="btn btn-black">
+          <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+          <span class="hide-sm">X</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="fade-in">
+          <h1 class="hero-title">รวมพลคนรัก Berachain 🐻⛓️</h1>
+          <p class="hero-subtitle">ชุมชนคนไทยที่ร่วมสร้างอนาคตไปกับ Berachain — เรียนรู้ แบ่งปัน และเติบโตไปด้วยกัน</p>
+          <div class="hero-buttons">
+            <a href="https://t.me/BerachainTH" target="_blank" class="btn btn-yellow btn-large">
+              <svg class="icon-large" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+              </svg>
+              เข้าร่วม Telegram
+            </a>
+            <a href="https://x.com/BerachainTHDAO" target="_blank" class="btn btn-black btn-large">
+              <svg class="icon-large" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              ติดตาม X
+            </a>
+          </div>
+        </div>
+        <div class="fade-in hero-image">
+          <img src="/images/hero-new.png" alt="Berachain Thailand DAO Community">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="bg-cream">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title text-black">สิ่งที่คุณจะได้รับ</h2>
+        <p class="section-subtitle">ร่วมเป็นส่วนหนึ่งของชุมชนและรับประโยชน์มากมาย</p>
+      </div>
+      <div class="benefits-image-container fade-in">
+        <img src="/images/benefits.png" alt="Steady Teddy's x BeraTHDAO" class="benefits-image">
+      </div>
+      <div class="card-grid card-grid-3">
+        <div class="card fade-in">
+          <div class="card-icon" style="background: var(--green);">
+            <svg class="icon-xl" fill="none" stroke="white" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H15"/>
+            </svg>
+          </div>
+          <h3 class="card-title">ข่าวสาร & อัปเดต</h3>
+          <p class="card-text">สรุปข่าวสำคัญ อัปเดตเครือข่าย และโอกาสใหม่ ๆ ในวงการ ส่งตรงถึงเพื่อน ๆ ทุกสัปดาห์</p>
+        </div>
+        <div class="card fade-in">
+          <div class="card-icon" style="background: var(--blue);">
+            <svg class="icon-xl" fill="none" stroke="white" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="card-title">เวิร์คชอป & AMA</h3>
+          <p class="card-text">เรียนรู้จากผู้เชี่ยวชาญ พูดคุยแลกเปลี่ยนความคิดเห็น และร่วมเสนอไอเดียกับชุมชน</p>
+        </div>
+        <div class="card fade-in">
+          <div class="card-icon" style="background: var(--pink);">
+            <svg class="icon-xl" fill="none" stroke="white" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+          </div>
+          <h3 class="card-title">เครือข่ายคุณภาพ</h3>
+          <p class="card-text">พบปะเพื่อนร่วมทาง นักพัฒนา และผู้ที่หลงใหลในโลก Blockchain เหมือนกับคุณ</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How To Join Section -->
+  <section class="bg-yellow">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title text-black">วิธีเข้าร่วมชุมชน</h2>
+        <p class="section-subtitle">เพียง 3 ขั้นตอนง่าย ๆ ในการเป็นส่วนหนึ่งของเรา</p>
+      </div>
+      <div class="card-grid card-grid-3">
+        <div class="step-card fade-in">
+          <div class="step-number">1</div>
+          <h3 class="step-title">ติดตาม X</h3>
+          <p class="step-text">ติดตาม @BerachainTHDAO เพื่อรับข่าวสารล่าสุด</p>
+          <a href="https://x.com/BerachainTHDAO" target="_blank" class="btn btn-black">
+            ติดตาม
+            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+        <div class="step-card fade-in">
+          <div class="step-number">2</div>
+          <h3 class="step-title">เข้ากลุ่ม Telegram</h3>
+          <p class="step-text">ร่วมพูดคุยใน Berachain Thailand DAO</p>
+          <a href="https://t.me/BerachainTH" target="_blank" class="btn btn-black">
+            เข้าร่วม
+            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+        <div class="step-card fade-in">
+          <div class="step-number">3</div>
+          <h3 class="step-title">แนะนำตัว</h3>
+          <p class="step-text">บอกเราว่าคุณสนใจอะไร แล้วเริ่มสร้างความสัมพันธ์กับชุมชนได้เลย!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Past Events Section -->
+  <section class="bg-cream">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title text-black">กิจกรรมที่ผ่านมา</h2>
+        <p class="section-subtitle">IRL Events ที่เราจัดร่วมกับพันธมิตร</p>
+      </div>
+      <div class="card-grid card-grid-2">
+        <div class="event-card fade-in">
+          <div class="event-image">
+            <img src="/images/events/steady-teddys.jpg" alt="Steady Teddys Beras in BKK">
+            <div class="event-date">
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              July 17, 2025
+            </div>
+          </div>
+          <div class="event-content">
+            <h3 class="event-title">Steady Teddys Beras in BKK</h3>
+            <p class="event-subtitle">by BeraTHDAO x Bitkub x Prism x Steady Teddys</p>
+            <a href="https://x.com/BerachainTHDAO/status/1942968970841301171" target="_blank" class="event-link">
+              <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              ดูรายละเอียด
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="event-card fade-in">
+          <div class="event-image">
+            <img src="/images/events/furthermore-beras.jpg" alt="Furthermore x BeraTHDAO">
+            <div class="event-date">
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              May 29, 2025
+            </div>
+          </div>
+          <div class="event-content">
+            <h3 class="event-title">Furthermore x BeraTHDAO: BERAS IN BKK</h3>
+            <p class="event-subtitle">Exclusive Berachain Community Gathering</p>
+            <a href="https://x.com/BerachainTHDAO/status/1923355234489024627" target="_blank" class="event-link">
+              <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              ดูรายละเอียด
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="event-card fade-in">
+          <div class="event-image">
+            <img src="/images/events/sea-connect.jpg" alt="Berachain Community SEA Connect">
+            <div class="event-date">
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              April 3, 2025
+            </div>
+          </div>
+          <div class="event-content">
+            <h3 class="event-title">Berachain Community SEA Connect</h3>
+            <p class="event-subtitle">Southeast Asia Community Meetup</p>
+            <a href="https://x.com/BerachainTHDAO/status/1906333096687091796" target="_blank" class="event-link">
+              <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              ดูรายละเอียด
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="event-card fade-in">
+          <div class="event-image">
+            <img src="/images/events/night-club.jpg" alt="Road to Berachain Night Club">
+            <div class="event-date">
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              November 13, 2024
+            </div>
+          </div>
+          <div class="event-content">
+            <h3 class="event-title">Road to Berachain Night Club</h3>
+            <p class="event-subtitle">Night Event for Berachain Enthusiasts</p>
+            <a href="https://x.com/BerachainTHDAO/status/1853847991532364206" target="_blank" class="event-link">
+              <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              ดูรายละเอียด
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Event Atmosphere Gallery Section -->
+  <section class="bg-cream">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title text-black">ตัวอย่างบรรยากาศ Events IRL</h2>
+        <p class="section-subtitle">ภาพบรรยากาศจากกิจกรรมที่ผ่านมา</p>
+      </div>
+      <div class="gallery-grid fade-in">
+        <div class="gallery-item">
+          <img src="/images/events/BC1.jpeg" alt="Event Atmosphere 1">
+        </div>
+        <div class="gallery-item">
+          <img src="/images/events/BC2.jpeg" alt="Event Atmosphere 2">
+        </div>
+        <div class="gallery-item">
+          <img src="/images/events/BC3.jpeg" alt="Event Atmosphere 3">
+        </div>
+        <div class="gallery-item">
+          <img src="/images/events/BC4.jpeg" alt="Event Atmosphere 4">
+        </div>
+        <div class="gallery-item">
+          <img src="/images/events/BC5.png" alt="Event Atmosphere 5">
+        </div>
+        <div class="gallery-item">
+          <img src="/images/events/BC6.png" alt="Event Atmosphere 6">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AMA Events Section with Images -->
+  <section class="bg-purple">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title text-white">AMA Events</h2>
+        <p class="section-subtitle" style="color: var(--cream);">พูดคุยและเรียนรู้จากผู้เชี่ยวชาญในวงการ</p>
+      </div>
+      <div class="card-grid card-grid-2 card-grid-3">
+        <a href="https://x.com/BerachainTHDAO/status/1966055111400018120" target="_blank" class="ama-card fade-in">
+          <div class="ama-image">
+            <img src="https://lh3.googleusercontent.com/d/1CQcHd5R8BAzfn3JWZNlM1NDNk-kJ9FC_" alt="BeraTHDAO Talk #2">
+            <div class="ama-date-badge">
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              Sep 17, 2025
+            </div>
+          </div>
+          <div class="ama-content">
+            <h3 class="ama-title">BeraTHDAO Talk #2: ทำไมถึงต้อง Bera & Teddy Maxi</h3>
+            <span class="ama-link">
+              ดูเพิ่มเติม
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <a href="https://x.com/BerachainTHDAO/status/1952663543087817205" target="_blank" class="ama-card fade-in">
+          <div class="ama-image">
+            <img src="https://lh3.googleusercontent.com/d/1FXGlkWcA_ct4QXx3ph0KPfNj4p5Bns9_" alt="BeraTHDAO Talk #1">
+            <div class="ama-date-badge">
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              Aug 8, 2025
+            </div>
+          </div>
+          <div class="ama-content">
+            <h3 class="ama-title">BeraTHDAO Talk #1: Bera & Beyond</h3>
+            <span class="ama-link">
+              ดูเพิ่มเติม
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <a href="https://x.com/BerachainTHDAO/status/1917774946320933190" target="_blank" class="ama-card fade-in">
+          <div class="ama-image">
+            <img src="https://lh3.googleusercontent.com/d/1IpIbtMZs4ZtzvCmvk8l_w2-eek6l-wdZ" alt="Get to Know BeraPaw AMA">
+            <div class="ama-date-badge">
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              May 2, 2025
+            </div>
+          </div>
+          <div class="ama-content">
+            <h3 class="ama-title">Get to Know BeraPaw AMA</h3>
+            <span class="ama-link">
+              ดูเพิ่มเติม
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <a href="https://x.com/BerachainTHDAO/status/1881731196553769245" target="_blank" class="ama-card fade-in">
+          <div class="ama-image">
+            <img src="https://lh3.googleusercontent.com/d/116vsVYHFUF-wxF2rG6gxXZK5LZaj0wxP" alt="YEET AMA">
+            <div class="ama-date-badge">
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              Jan 22, 2025
+            </div>
+          </div>
+          <div class="ama-content">
+            <h3 class="ama-title">YEET AMA</h3>
+            <span class="ama-link">
+              ดูเพิ่มเติม
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <a href="https://x.com/BerachainTHDAO/status/1879185471940792730" target="_blank" class="ama-card fade-in">
+          <div class="ama-image">
+            <img src="https://lh3.googleusercontent.com/d/1vD9ofPvtzWzgxcTdN6SPHAkWG96Mk4Gl" alt="BurrBear AMA">
+            <div class="ama-date-badge">
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              Jan 16, 2025
+            </div>
+          </div>
+          <div class="ama-content">
+            <h3 class="ama-title">BurrBear AMA</h3>
+            <span class="ama-link">
+              ดูเพิ่มเติม
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section with Images -->
+  <section class="bg-cream">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title text-black">บทความ & คอนเทนต์</h2>
+        <p class="section-subtitle">เนื้อหาที่เราสร้างสรรค์เพื่อชุมชน</p>
+      </div>
+      <div class="card-grid card-grid-2 card-grid-3">
+        <a href="https://x.com/BerachainTHDAO/status/1915703319936508204" target="_blank" class="content-card fade-in">
+          <div class="content-image">
+            <img src="https://lh3.googleusercontent.com/d/1NVJ48FeaMUtLNgOF6aX_-iKOaTTYOVNw" alt="Proof of Liquidity">
+            <div class="content-date-badge">
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              Apr 25, 2025
+            </div>
+          </div>
+          <div class="content-text">
+            <h3 class="content-title">วิธีหาผลประโยชน์จาก Proof of Liquidity ของ Berachain</h3>
+          </div>
+        </a>
+        <a href="https://x.com/BerachainTHDAO/status/1831631579678183582" target="_blank" class="content-card fade-in">
+          <div class="content-image">
+            <img src="https://lh3.googleusercontent.com/d/1KZNka-0QVfwKiImKsaaYKTPOG3gurY-_" alt="Beaconkit">
+            <div class="content-date-badge">
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              Sep 5, 2024
+            </div>
+          </div>
+          <div class="content-text">
+            <h3 class="content-title">มาอ่านเนื้อหาเกี่ยวกับ Beaconkit</h3>
+          </div>
+        </a>
+        <a href="https://x.com/BerachainTHDAO/status/1826520653627097403" target="_blank" class="content-card fade-in">
+          <div class="content-image">
+            <img src="https://lh3.googleusercontent.com/d/1BPx3o_MK6ynjmGP5GzsG7tecMGVCA71G" alt="BERACHAIN Discord">
+            <div class="content-date-badge">
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              Aug 22, 2024
+            </div>
+          </div>
+          <div class="content-text">
+            <h3 class="content-title">ทำความรู้จักคอมมูนิตี้ BERACHAIN ใน Discord</h3>
+          </div>
+        </a>
+        <a href="https://x.com/BerachainTHDAO/status/1825512531705713151" target="_blank" class="content-card fade-in">
+          <div class="content-image">
+            <img src="https://lh3.googleusercontent.com/d/1WAbC1n0uJjJY3MAwxIl1Xb73al0ERaRf" alt="Infrared">
+            <div class="content-date-badge">
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              Aug 19, 2024
+            </div>
+          </div>
+          <div class="content-text">
+            <h3 class="content-title">ทำความรู้จักกับ Infrared</h3>
+          </div>
+        </a>
+        <a href="https://x.com/BerachainTHDAO/status/1825052105637286362" target="_blank" class="content-card fade-in">
+          <div class="content-image">
+            <img src="https://lh3.googleusercontent.com/d/1IjsCCXfJe7mibIIEnp6d9enagonnNlsD" alt="Beratarded Role">
+            <div class="content-date-badge">
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              Aug 18, 2024
+            </div>
+          </div>
+          <div class="content-text">
+            <h3 class="content-title">วิธีล่า Beratarded role บน Berachain Discord</h3>
+          </div>
+        </a>
+        <a href="https://x.com/BerachainTHDAO/status/1810313818435903834" target="_blank" class="content-card fade-in">
+          <div class="content-image">
+            <img src="https://lh3.googleusercontent.com/d/1A-eBLpVBPUH3MLFPaiIkqASDTWcqM_AH" alt="Role on Berachain">
+            <div class="content-date-badge">
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              Jul 8, 2024
+            </div>
+          </div>
+          <div class="content-text">
+            <h3 class="content-title">ทำยังไงถึงจะได้ Role บน Berachain</h3>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners Section - Only Image -->
+  <section class="bg-green">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title text-white">พันธมิตรของเรา</h2>
+        <p class="section-subtitle" style="color: var(--cream);">ร่วมมือกับแบรนด์ชั้นนำใน ecosystem</p>
+      </div>
+      <div class="partners-image-container fade-in">
+        <img src="https://lh3.googleusercontent.com/d/1i1PZHuLJCf47Q8QaM8aeqfm6LDUet5gW" alt="Partners" class="partners-image">
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="bg-cream">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title text-black">ทีมงาน</h2>
+        <p class="section-subtitle">ผู้สร้างสรรค์ชุมชนนี้</p>
+      </div>
+      <div class="team-card fade-in">
+        <img src="/images/team.png" alt="ContributionDAO Community Team" class="team-image">
+        <div class="team-content">
+          <h3 class="team-name">ContributionDAO Community Team</h3>
+          <p class="team-desc">ทีมงานที่มีความหลงใหลในการสร้างชุมชน และพร้อมสนับสนุนให้ทุกคนเติบโตในโลก Web3</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Footer Section -->
+  <section class="bg-black">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title text-cream">ติดต่อเรา</h2>
+        <p style="color: var(--cream); opacity: 0.8;">มาเป็นส่วนหนึ่งของชุมชน Berachain Thailand วันนี้</p>
+      </div>
+      
+      <div class="contact-buttons fade-in">
+        <a href="https://t.me/BerachainTH" target="_blank" class="contact-btn contact-btn-yellow">
+          <svg class="icon-large" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+          </svg>
+          <div class="contact-info">
+            <div class="contact-platform">Telegram</div>
+            <div class="contact-name">Berachain Thailand DAO</div>
+          </div>
+        </a>
+        <a href="https://x.com/BerachainTHDAO" target="_blank" class="contact-btn contact-btn-blue">
+          <svg class="icon-large" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+          <div class="contact-info">
+            <div class="contact-platform">X / Twitter</div>
+            <div class="contact-name">@BerachainTHDAO</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="text-center border-t pt-8 fade-in">
+        <div class="footer-brand">
+          <img src="/images/logo.png" alt="Berachain Thailand DAO">
+          <span style="font-weight: 700; font-size: 1.125rem; color: var(--cream);">Berachain Thailand DAO</span>
+        </div>
+        <p class="footer-text" style="color: var(--cream);">Built with 🐻 by ContributionDAO Community Team</p>
+        <p class="footer-copyright" style="color: var(--cream);">© 2025 Berachain Thailand DAO. All rights reserved.</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Fade in animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
